@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>테이블</title>
+	<style>
+		section {
+			position: relative;
+			left: 15%;
+			top: 50px;
+			width: 60%;
+			background-color: whitesmoke;
+		}
+	</style>
+</head>
+
+<body>
+	<section>
+		<article>
+			<table border=1 style="width:25%">
+				<caption><b>rowspan</b></caption>
+				<thead>
+				<!-- 머리부분 -->	
+				<tr>
+					<td align="center"><ins>예담고등학교</ins></td>
+					<td align="center"><ins>짱,부짱 연락처</ins></td>
+				</tr>
+				</thead>
+				<tbody>
+				<!-- 바디부분 -->
+				<tr>
+					<td align="center" rowspan="2">이름</td>
+					<td align="center">나이</td>
+				</tr>
+				<tr>
+					<td align="center">전화</td>
+				</tr>
+				<tr>
+					<td align="center" rowspan="2">짱 : 박규림</td>
+					<td align="center">29</td>
+				</tr>
+				<tr>
+					<td align="center">01035852807</td>
+				</tr>
+				<tr>
+					<td align="center" rowspan="2">부짱 : 이배진</td>
+					<td align="center">27</td>
+				</tr>
+				<tr>
+					<td align="center">01058827474</td>
+				</tr>
+				</tbody>
+				<!-- 풋부분  -->
+				<tfoot>
+					<td align="center" colspan="2">colpan, rowspan 연습</td>
+				</tfoot>
+			</table>
+			<br><br>
+			<table border=1 style="width:300px">
+				<tr style="background-color:yellow">
+				<tr>
+					<td align="center" rowspan="2"><ins>정보</ins></td>
+					<td align="center"><ins>이름</ins></td>
+					<td align="center"><ins>박규림</ins></td>
+					<td align="center" colspan="2"><ins>전화</ins></td>
+				</tr>
+				<tr style="background-color:darkorange">
+					<td align="center">주소</td>
+					<td align="center">대구시</td>
+					<td align="center">1234</td>
+				</tr>
+				<tr>
+					<td align="center" rowspan="5"><ins>데이터</ins></td>
+					<td align="center" colspan="3">공란</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="3">경력</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="3">2019 졸업</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="3">2020 예담</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="3">2021 취업</td>
+				</tr>
+
+			</table>
+	</section>
+ </article>
+
+</body>
+
+</html>
