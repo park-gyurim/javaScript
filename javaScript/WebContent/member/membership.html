@@ -5,24 +5,44 @@
 <title>membership.html</title>
 </head>
 <body>
-<div style="background-color: rgb(244, 121, 255); top:50px; position: absolute; left: 100px; width: 50%;">
+<div style="background-color: whitesmoke; top:50px; position: absolute; left: 100px; width: 50%;">
 <form action="member.jsp" method="get">
 <table border="1">
 				<tr>
 					<td> 이름 </td>
-					<td><input type="text" name="myname" value="하준원"></td>
+					<td><input type="text" name="myname" ></td>
 				</tr>
 				<tr>
-					<td> 전공 </td>
-					<td><input type="text" name="mymajor" value="자바"></td>
-				</tr>
-				<tr>
-					<td> 날짜 </td>
-					<td><input type="date" name="today"></td>
+					<td> 아이디 </td>
+					<td><input type="text" name="mymajor"></td>
 				</tr>
 				<tr>
 					<td> 비번 </td>
-					<td><input type="password" name="tpasswd"></td>
+					<td><input type="text" name="tpasswd"></td>
+				</tr>
+				<tr>
+					<td> 전공 </td>
+					<td><input type="text" list="majorlist" name="major">
+					<select name="subject">
+						<option value="1." selected> 자바 </option>
+						<option value="2."> 오라클 </option>
+						<option value="3."> 자바스크립트 </option>
+						<option value="4."> 에이치엠엘 </option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td> 성별 </td>
+					<td>
+					<input type="radio" name="sex" value="male" checked> 남자
+					<input type="radio" name="sex" value="female"> 여자
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="전송">
+						<input type="reset" value="다시작성">
+					</td>
 				</tr>
 				</table>
 		</form>
