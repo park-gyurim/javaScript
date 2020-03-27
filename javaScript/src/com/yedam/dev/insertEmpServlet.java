@@ -1,0 +1,52 @@
+package com.yedam.dev;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class insertEmpServlet
+ */
+@WebServlet("/insertEmpServlet")
+public class insertEmpServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public insertEmpServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String lastname = request.getParameter("lastname");
+		String email = request.getParameter("email");
+		String jobid = request.getParameter("jobid");
+		System.out.println("lastname:" + lastname + ", email: " + email + ", jobid: "+ jobid);
+		Employee emp = new Employee();
+		emp.setLastName(lastname);
+		emp.setEmail(email);
+		emp.setJobId(jobid);
+		
+		EmpDAO dao = new EmpDAO();
+		dao.insertEmp(emp);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
