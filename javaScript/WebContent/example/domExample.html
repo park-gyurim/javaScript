@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button id="add">Add Row</button>
+	<ul id="show">
+		<li style="display:none">One</li>
+		<li>One-1</li>
+		<li>Two</li>
+	</ul>
+	<script>
+		var lis = document.querySelectorAll("ul li");
+		console.log(lis);
+		lis.forEach(function(a, b, c) {
+			console.log(a);
+			a.addEventListener("mouseover", function() {
+				a.style.backgroundColor = "blue";
+			})
+			a.addEventListener("mouseout", function() {
+				a.style.backgroundColor = "";
+			})
+		})
+		var numbers = [ "three", "four", "Five" ];
+		var btn = document.getElementById("add");
+		console.log(btn);
+		btn.innerHTML = "한줄 추가";
+		var numberIdx = 0;
+		btn.addEventListener("click", function(e) {
+			console.log(e);
+			var $li = document.createElement("li");
+
+			$li.addEventListener("mouseover", function(a) {
+				console.log(a);
+				a.target.style.backgroundColor = "yellow";
+			});
+			$li.addEventListener("mouseout", function(a) {
+				console.log(a);
+				a.target.style.backgroundColor = "";
+			});
+			var $text = document.createTextNode(numbers[numberIdx]);
+			$li.appendChild($text);
+			document.getElementById("show").appendChild($li);
+			numberIdx++;
+		})
+	</script>
+
+
+
+</body>
+</html>

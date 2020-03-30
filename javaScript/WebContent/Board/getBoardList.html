@@ -7,23 +7,40 @@
 </head>
 
 <body>
+	Content: <input type="text" name="" id="content"><br>
+	Writer: <input type="text" name="" id="writer"><br>
+	<button onclick = "insertBoardFunc()"> Click </button>
+	
 	<p id="show"></p>
+	
+	
+	
 	<script>
 		var show = document.getElementById("show");
 		var $table, $tr, $td, $text;
 		var xhtp = new XMLHttpRequest();
+		var $titles = ["boardNo", "content","writer", "date"];
 		xhtp.onreadystatechange = function () {
 			if (xhtp.readyState == 4 && xhtp.status == 200) {
 				console.log(xhtp.responseText);
 				var datas = JSON.parse(xhtp.responseText);
 				$table = document.createElement("table");
 				$table.setAttribute("border", 1);
-				datas.forEach(function (a) {
+				datas.forEach(function (o) {
 					$tr = document.createElement("tr");
-					for (f in a) {
-						$text = document.createTextNode(a[f]);
+					for (f of $titles) {
+						$text = document.createTextNode(o[f]);
 						$td = document.createElement("td");
-						$td.appendChild($text);
+						if(f == "boardNo") {
+							var $a = document.createElement("a");
+							$a.setAttribute("href", "getBoard.jsp?boardNo=" + o[f]);
+							$a.innerHTML = o[f];
+							$td.appendChild($a);
+						}
+						else {
+							$td.appendChild($text)
+						}
+					
 						$tr.appendChild($td);
 					}
 					$table.appendChild($tr);
@@ -33,6 +50,18 @@
 		}
 		xhtp.open("get", "../GetBoardListServlet", true);
 		xhtp.send();
+		
+		function insertBoardFunc() {
+    		var cont = document.getElementById('content').value;
+            var wri = document.getElementById('writer').value;
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function() {
+                console.log(xhtp.responseText);
+            }
+            xhtp.open("post","../InsertBoardServlet", true);// true:비동기, false:동기
+            xhtp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhtp.send("content="+cont+"&writer="+wri);
+    	}
 
 	//show.appendChild($table);
 

@@ -28,7 +28,7 @@ public class BoardDao {
 	}
 
 	public List<Board> getBoardList() {
-		String sql = "select * from board";
+		String sql = "select * from board order by 1 desc";
 		List<Board> list = new ArrayList<>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);

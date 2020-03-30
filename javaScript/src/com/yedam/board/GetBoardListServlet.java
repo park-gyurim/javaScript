@@ -36,7 +36,7 @@ public class GetBoardListServlet extends HttpServlet {
       for (Board e : dao.getBoardList()) {
          obj.put("boardNo", e.getBoardNo());
          obj.put("content", e.getContent());
-         obj.put("lastName", e.getWriter());
+         obj.put("writer", e.getWriter());
          obj.put("date", e.getDate());
          ary.add(obj);
       }
