@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="function3.js"></script>
+</head>
+<body>
+    <p id ="show"></p>
+    <button onclick="clearInterval(auto1)">stop</button>
+    <button onclick="goPage('www.naver.com')">클릭</button>
+    <script>
+        function goPage(newPage) {
+            location.href='https://' + newPage;
+                    }
+        document.onresize = function() {
+            console.log(window.innerWidth, window.innerHeight);
+        }
+        setTimeout(function() {//초단위로 이벤트를 실행시키는 메소드(반복안됨) 
+            alert("hi");
+                    }, 30000);
+
+        var auto1 = setInterval(function() {// 초단위로 대이터값이 게속 증가하는 메소드
+            var now = new Date();
+            document.getElementById("show").innerHTML = now;
+        }, 1000);
+
+
+     
+        // var result = window.confirm("확인헐려?");
+        // if(result) {
+        //     console.log("확인눌럿어");
+        // }else {
+        //     console.log("취소눌럿어");
+        // }
+        // window.open("http://www.easyspub.com", "easyspub")//url을 팝업하는 메소드
+
+        var p1 = new CheckWeight("park", 170, 60);
+        console.log(p1.userName, p1.userHeight, p1.userWeight);
+        var p2 = {
+            userName: "hong",
+            userHeight: 180,
+            userWeight: 90,
+            getInfo: function() {
+                return "이름: " + this.userName + "키는: " + this.userHeight + "몸무게는: " + this.userWeight;
+            }
+        }
+        var $today = new Date();
+        console.log($today.getFullYear());
+    </script>
+    
+</body>
+</html>

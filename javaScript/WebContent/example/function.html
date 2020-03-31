@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="function1.js"></script>
+    <script src="function2.js"></script>
+    <script src="function3.js"></script>
+</head>
+<body>
+    <div id = "galleryZone">
+        <p> <img id="photo" src="../image/2.jpg"></p>
+        <p><button onclick= "gellery(0)">이전</button></p>
+        <p><button onclick= "gellery(1)">다음</button></p>
+    </div>
+    
+<script>
+    var fnc = "function";
+    console.log("첫번째" + func1());
+    function func1(){ // 함수명: func1
+        return 10+20;
+    }
+    var fnc1 = function(num1, num2) {
+    	var num3 = 0;
+        return num1  + num3;
+
+    }
+    console.log("두번째" + fnc1(10,20,30));
+    function func3() {
+        //console.log(arguments.length);
+        var sum =0;
+        for(var i=0; i<arguments.length; i++){
+            sum += arguments[i];
+        }
+        return  sum;
+    }
+    var sum = func3(1,2,3,4,5,6,7);
+    console.log("합게: " + sum);
+    </script>
+
+</body>
+</html>
