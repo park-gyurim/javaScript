@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button onclick="menu()">메뉴초이스</button>
+</head>
+<body>
+    
+    <script> 
+    function menu() {
+        var menu = ["짜장면","돈까스","된장찌개","김치찌개","회덮밥"];
+        var menuNum = Math.floor(Math.random() * 5);
+        //console.log(rad); 
+        var result = menu[menuNum];
+        // document.write(result);
+        
+        alert("메뉴는: " + result + "입니다.")
+    }
+        </script>
+</body>
+</html>
