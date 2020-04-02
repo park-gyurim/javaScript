@@ -20,7 +20,7 @@ public class EmpDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url, user, passwd);
-			System.out.println("정상저그로 연결됬음");
+			System.out.println("정상적으로 연결됬음");
 
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println("연결중 에러발생!");
@@ -28,6 +28,7 @@ public class EmpDAO {
 		}
 
 	}
+}
 
 	public List<Student> getEmpList() {
 		String sql = "select first_name, salary, email from emp";
@@ -44,8 +45,8 @@ public class EmpDAO {
 		}
 		return list;
 	}
-}
-public employee getEmpDaoInfo(int ) {
+
+	public employee getEmpDaoInfo(int ) {
 	String sql = "select empno,ename,phone_number,department_name,email from emp";
 	EmpDAO ed = new EmpDAO();
 	try {
