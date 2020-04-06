@@ -6,9 +6,12 @@ import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
 class Student {
-	private String name;
-	private int englishScore;
-	private int mathScore;
+	String name;
+	String sex;
+	int mathScore;
+	int englishScore;
+	
+	
 
 	public Student(String name, int mathScore, int englishScore) {
 		super();
@@ -16,9 +19,23 @@ class Student {
 		this.mathScore = mathScore;
 		this.englishScore = englishScore;
 	}
+	
+
+	public Student(String name, String sex, int mathScore, int englishScore) {
+		super();
+		this.name = name;
+		this.sex = sex;
+		this.mathScore = mathScore;
+		this.englishScore = englishScore;
+	}
+
 
 	public String getName() {
 		return name;
+	}
+
+	public String getSex() {
+		return sex;
 	}
 
 	public int getEnglishScore() {
