@@ -10,33 +10,33 @@ import java.util.Set;
 
 public class Main {
 	public static void main(String[] args) {
-		Student s1  = new Student("Hong","s111", 20);
-		Student s2  = new Student("gela","s222", 22);
-		Student s3  = new Student("zimi","s333", 23);
+		LambdaExpressionExample s1  = new LambdaExpressionExample("Hong","s111", 20);
+		LambdaExpressionExample s2  = new LambdaExpressionExample("gela","s222", 22);
+		LambdaExpressionExample s3  = new LambdaExpressionExample("zimi","s333", 23);
 		System.out.println(" ==배열== ");
-		Student[] studAry = { s1, s2, s3 };
-		for(Student s : studAry) {
+		LambdaExpressionExample[] studAry = { s1, s2, s3 };
+		for(LambdaExpressionExample s : studAry) {
 			System.out.println(s.toString());
 		}
 		System.out.println("== ArrayList ==");
-		List<Student> list = new ArrayList<Student>();
+		List<LambdaExpressionExample> list = new ArrayList<LambdaExpressionExample>();
 		list.add(s1);
 		list.add(s2);
 		list.add(s3);
-		for (Student s : list) {
+		for (LambdaExpressionExample s : list) {
 			System.out.println(s);
 		}
 		System.out.println("==set==");
-		Set<Student> studSet = new HashSet<Student>();
+		Set<LambdaExpressionExample> studSet = new HashSet<LambdaExpressionExample>();
 		studSet.add(s1);
 		studSet.add(s2);
 		studSet.add(s3); studSet.remove(s1);
-		Iterator<Student> iter = studSet.iterator();
+		Iterator<LambdaExpressionExample> iter = studSet.iterator();
 		while(iter.hasNext()) {
 			System.out.println(iter.next());
 		}
 		System.out.println(" == Map == "); //key, value
-		Map<Integer, Student> studMap = new HashMap<Integer, Student>();
+		Map<Integer, LambdaExpressionExample> studMap = new HashMap<Integer, LambdaExpressionExample>();
 		studMap.put(1, s1);
 		studMap.put(2, s2);
 		studMap.put(3, s3);
@@ -47,10 +47,10 @@ public class Main {
 			System.out.println("key: " + iKey + ", value: " + studMap.get(iKey).toString());
 		}
 		System.out.println(" == Map2 == ");
-		Set<Map.Entry<Integer, Student>> mSet = studMap.entrySet();
-		Iterator<Map.Entry<Integer, Student>> iter3 = mSet.iterator();
+		Set<Map.Entry<Integer, LambdaExpressionExample>> mSet = studMap.entrySet();
+		Iterator<Map.Entry<Integer, LambdaExpressionExample>> iter3 = mSet.iterator();
 		while(iter3.hasNext()) {
-			Map.Entry<Integer, Student> rMap = iter3.next();
+			Map.Entry<Integer, LambdaExpressionExample> rMap = iter3.next();
 			System.out.println("key: " + rMap.getKey() + ", value: " + rMap.getValue());
 			
 		}
