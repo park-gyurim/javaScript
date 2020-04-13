@@ -96,7 +96,7 @@ public class clientExample extends Application {
 
 	// send()
 	void send(String data) {
-		Thread thred = new Thread() {
+		Thread thread = new Thread() {
 
 			@Override
 			public void run() {
@@ -109,14 +109,16 @@ public class clientExample extends Application {
 						displayText("[보내기완료]");
 					});
 				} catch (IOException e) {
-					e.printStackTrace();
+					
 					Platform.runLater(() -> {
 						displayText("[서버 통신 안됨]");
+						stopClient();
 					});
 				}
 			}
 
 		};
+		thread.start();
 	}//센드 메소드 끝나는 부분
 	
 
@@ -144,14 +146,16 @@ public class clientExample extends Application {
 		btnConn.setPrefSize(60, 30);
 		btnConn.setOnAction(event -> {
 			if (btnConn.getText().equals("start")) {
+				startClient();
 			} else if (btnConn.getText().equals("stop")) {
+				stopClient();
 			}
 		});
 
 		btnSend = new Button("send");
 		btnSend.setPrefSize(60, 30);
 		btnSend.setDisable(true);
-		btnSend.setOnAction(event -> System.out.println());
+		btnSend.setOnAction(event -> send(txtInput.getText()));//메세지보내는기능
 
 		bottom.setCenter(txtInput);
 		bottom.setLeft(btnConn);
