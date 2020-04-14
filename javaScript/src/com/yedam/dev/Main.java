@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.yedam.Stream.LambdaExpressionExample;
+
 public class Main {
 	public static void main(String[] args) {
 		LambdaExpressionExample s1  = new LambdaExpressionExample("Hong","s111", 20);

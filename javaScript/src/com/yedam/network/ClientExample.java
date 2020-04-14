@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class clientExample extends Application {
+public class ClientExample extends Application {
 	Socket socket;
 
 	void displayText(String text) {
@@ -31,7 +31,7 @@ public class clientExample extends Application {
 			public void run() {
 				socket = new Socket();
 				try {
-					socket.connect(new InetSocketAddress("192.168.0.63", 5001));
+					socket.connect(new InetSocketAddress("192.168.0.69", 5001));
 					Platform.runLater(() -> {
 						displayText("[연결완료: " + socket.getRemoteSocketAddress() + "]");
 						btnConn.setText("stop");
@@ -44,6 +44,7 @@ public class clientExample extends Application {
 						// 스탑클라이언트();
 					}
 				}
+				receive();
 			}
 
 		};
@@ -97,7 +98,7 @@ public class clientExample extends Application {
 	// send()
 	void send(String data) {
 		Thread thread = new Thread() {
-
+			
 			@Override
 			public void run() {
 				try {
@@ -155,7 +156,7 @@ public class clientExample extends Application {
 		btnSend = new Button("send");
 		btnSend.setPrefSize(60, 30);
 		btnSend.setDisable(true);
-		btnSend.setOnAction(event -> send(txtInput.getText()));//메세지보내는기능
+		btnSend.setOnAction(event -> send("[규림]" + txtInput.getText()));//메세지보내는기능
 
 		bottom.setCenter(txtInput);
 		bottom.setLeft(btnConn);

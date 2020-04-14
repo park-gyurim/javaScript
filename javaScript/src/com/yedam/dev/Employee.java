@@ -13,6 +13,10 @@ public class Employee {
 	int managerId;
 	int departmentId;
 	
+	public Employee(String string, int int1) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getEmployeeId() {
 		return employeeId;
 	}
