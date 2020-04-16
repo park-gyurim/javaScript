@@ -1,41 +1,41 @@
 package com.yedam.network;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class EmpServlet
- */
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 @WebServlet("/EmpServlet")
 public class EmpServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmpServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+   private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+   public EmpServlet() {
+      super();
+   }
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      // response.getWriter().append("Served at: ").append(request.getContextPath());
+      List<Employee> list = ScannerExample.getEmpList();
+      JSONObject obj = new JSONObject();
+      JSONArray ary = new JSONArray();
+      for (Employee e : list) {
+         obj.put("firstName", e.getFirstName());
+         obj.put("salary", e.getSalary());
+         ary.add(obj);
+      }
+      PrintWriter out = response.getWriter();
+      out.print(ary.toString());
+   }
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      doGet(request, response);
+   }
 }
