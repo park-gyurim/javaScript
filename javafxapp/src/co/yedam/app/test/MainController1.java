@@ -1,23 +1,26 @@
-package co.yedam.app.view;
+package co.yedam.app.test;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class MainController implements Initializable{
+public class MainController1 implements Initializable{
 	
 	@FXML BorderPane rootLayout;
-	@FXML MenuBar menubar;
+	@FXML GridPane gridpane;
+	@FXML Button button;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -47,13 +50,13 @@ public class MainController implements Initializable{
 	@FXML
 	public void loginView(ActionEvent event) {
 		try {
-			AnchorPane loginView = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
-			Stage primaryStage = (Stage) menubar.getScene().getWindow();
+			AnchorPane loginView = FXMLLoader.load(getClass().getResource("LoginView1.fxml"));
+			Stage primaryStage = (Stage) button.getScene().getWindow();
 
 			Stage dialog = new Stage(StageStyle.UTILITY);
 			dialog.initModality(Modality.WINDOW_MODAL);
 			dialog.initOwner(primaryStage);
-			dialog.setTitle("안녕");
+			dialog.setTitle("비만도계산기");
 
 			Scene scene = new Scene(loginView);
 			dialog.setScene(scene);
