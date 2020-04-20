@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class EmpDAO {
    String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -67,8 +68,8 @@ public class EmpDAO {
 	      }
 	   }
    
-   // 단거조회
-   public EmpDO SelectOne(EmpDO emp) {
+   // 단건조회
+   public EmpDO selectOne(EmpDO emp) {
 	   EmpDO empDO = new EmpDO();
 	      try {
 	         // 1. connect(DB 연결)
@@ -103,4 +104,38 @@ public class EmpDAO {
 	      return empDO;
 	   }
    // 전체조회
+   public ArrayList<EmpDO> selectAll() {
+	   ArrayList<EmpDO>	list = new ArrayList<EmpDO>();
+	      try {
+	         // 1. connect(DB 연결)
+	         conn = DriverManager.getConnection(url, "hr", "hr");
+	         // 2. statement(SQL 구문 준비)
+	         String sql = "select * from employees order by employee_id";
+	               
+	         PreparedStatement pstmt = conn.prepareStatement(sql);
+	         // 3. excute(SQL 실행)
+	         ResultSet rs = pstmt.executeQuery();
+	         // 4. 결과처리
+	         while(rs.next()) {
+	        	 EmpDO empDO = new EmpDO();
+	        	 empDO.setEmployeeId(rs.getString("EMPLOYEE_ID"));
+	        	 empDO.setLastName(rs.getString("last_Name"));
+	        	 empDO.setEmail(rs.getString("email"));
+	        	 empDO.setHireDate(rs.getString("hire_Date"));
+	        	 empDO.setJobId(rs.getString("job_Id"));
+	        	 list.add(empDO);
+	         }
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            // 5. close(연결해제)
+	            conn.close();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         }
+	      }
+	      return list;
+	   }
 }

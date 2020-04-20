@@ -1,0 +1,80 @@
+.root {}
+#btn0{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn1{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn2{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn3{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn4{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn5{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn6{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn7{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn8{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btn9{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btnComma{
+	-fx-font-size:30;
+	-fx-color:#00ff40;
+}
+#btnSum{
+	-fx-font-size:30;
+	-fx-color:#80ffff;
+
+}
+#btnSub{
+	-fx-font-size:30;
+	-fx-color:#80ffff;
+}
+#btnDiv{
+	-fx-font-size:30;
+	-fx-color:#80ffff;
+}
+#btnMul{
+	-fx-font-size:30;
+	-fx-color:#80ffff;
+}
+#btnClear{
+	-fx-font-size:30;
+	-fx-color:#ff0000;
+}
+#btnResult{
+	-fx-font-size:30;
+	-fx-color:#808040;
+}
+#btnBack{
+	-fx-font-size:30;
+	-fx-color:#000000;
+}
+#calResult{
+	-fx-font-size:30;
+}
+#calTotal{
+    -fx-font-size:25;
+}
